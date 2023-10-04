@@ -2,7 +2,7 @@ import "./Mansory.css";
 
 export default function MyMansonry(props) {
   const { imageUrls, columnCount, gap } = props;
-  console.log(imageUrls);
+  // console.log(imageUrls);
 
   return (
     <div style={{ columns: columnCount, columnGap: 10 }} className="imgcolumn">

@@ -2,28 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  useEffect(() => {
-    const handleScroll = () => {
-      const baseSection = document.getElementById("baseSection");
-      const navbar = document.querySelector("nav");
-
-      if (baseSection && navbar) {
-        const baseSectionRect = baseSection.getBoundingClientRect();
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop >= baseSectionRect.top) {
-          navbar.classList.add("sticky-visible");
-        } else {
-          navbar.classList.remove("sticky-visible");
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <nav className="flex justify-between items-center px-5 sticy top-0">
       <h1 className="text-4xl">Chefaos</h1>
