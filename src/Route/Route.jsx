@@ -3,6 +3,8 @@ import Main from "../Root/Main";
 import Home from "../Comonents/Home/Home";
 import ChefDetails from "../Comonents/ChefDetails/ChefDetails";
 import Menu from "../Comonents/Home/MenuSlider/Menu";
+import Registration from "../LogRegister/Registration";
+import Login from "../LogRegister/Login";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: "menu",
         element: <Menu />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Registration />,
       },
       {
         path: "chefdetails/:chefid",

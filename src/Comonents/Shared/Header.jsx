@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { provider } = useContext(AuthContext);
+  console.log(provider);
   return (
     <nav className="flex justify-between items-center px-5 sticy top-0">
       <h1 className="text-4xl">Chefaos</h1>
