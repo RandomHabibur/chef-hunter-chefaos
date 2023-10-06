@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import { useState } from "react";
+import { useEffect } from "react";
 
 const ChefDetails = () => {
   const specificChefDetails = useLoaderData();
@@ -22,6 +23,11 @@ const ChefDetails = () => {
   } = specificChefDetails;
   console.log(recipes);
   const shouldRenderTwice = chefDescription.length < 250;
+
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="chef-details-container bg-gray-200 py-10 px-3">
@@ -53,18 +59,27 @@ const ChefDetails = () => {
           </div>
         </div>
         <div className="container mx-auto" id="show-recipes">
-          <div>
+          <div className="">
             <h1 className="text-3xl font-semibold mt-2">Special Recipes</h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 my-3">
               You can see top popular recipes {chefName} serve
             </p>
             <Swiper
               slidesPerView={3}
+              spaceBetween={30}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               pagination={{ clickable: true }}
+              modules={[Autoplay, Pagination]}
               className="mySwiper"
             >
-              {recipes.map((recipe, idx) => (
-                <SwiperSlide className="flex items-center" key={idx}>
+              {recipes.map((recipe) => (
+                <SwiperSlide
+                  className="flex items-center"
+                  key={recipe.recipes_id}
+                >
                   <img
                     className="rounded-lg"
                     src={recipe.recipeImages}

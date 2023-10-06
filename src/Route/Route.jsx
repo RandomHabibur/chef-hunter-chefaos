@@ -5,6 +5,9 @@ import ChefDetails from "../Comonents/ChefDetails/ChefDetails";
 import Menu from "../Comonents/Home/MenuSlider/Menu";
 import Registration from "../LogRegister/Registration";
 import Login from "../LogRegister/Login";
+import OurChefs from "../Comonents/Home/OurChefs";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Setting from "../Comonents/Setting/setting";
 
 const router = createBrowserRouter([
   {
@@ -14,10 +17,26 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () =>
+          fetch(
+            "https://chef-hunter-chefaos-6nrafiqay-randomhabibur.vercel.app/chef/v1"
+          ),
       },
       {
         path: "menu",
         element: <Menu />,
+      },
+      {
+        path: "ourchefs",
+        element: (
+          <PrivateRoute>
+            <OurChefs />
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch(
+            "https://chef-hunter-chefaos-6nrafiqay-randomhabibur.vercel.app/allchef/v1"
+          ),
       },
       {
         path: "login",
@@ -31,7 +50,17 @@ const router = createBrowserRouter([
         path: "chefdetails/:chefid",
         element: <ChefDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/allchef/v1/chefid/${params.chefid}`),
+          fetch(
+            `https://chef-hunter-chefaos-6nrafiqay-randomhabibur.vercel.app/allchef/v1/chefid/${params.chefid}`
+          ),
+      },
+      {
+        path: "setting",
+        element: (
+          <PrivateRoute>
+            <Setting />
+          </PrivateRoute>
+        ),
       },
     ],
   },

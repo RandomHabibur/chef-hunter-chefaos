@@ -5,7 +5,7 @@
 
 .chef-photo-container {
   /* Other styles for the photo container */
-  transition: all 0.3s ease-in-out; /* Transition all properties smoothly */
+  transition: all 0.6s ease-in-out; /* Transition all properties smoothly */
 }
 
 .chef-photo {
@@ -17,10 +17,15 @@
 /* ChefDetails.css */
 .chef-details-single-column {
   /* Styles for single-column layout */
-  transition: all 0.3s ease-in-out; /* Example transition: all properties smoothly */
+  transition: all 0.6s ease-in-out; /* Example transition: all properties smoothly */
 }
 
 .chef-details-multi-column {
   /* Styles for multi-column layout */
-  transition: all 0.3s ease-in-out; /* Example transition: all properties smoothly */
+  transition: all 0.6s ease-in-out; /* Example transition: all properties smoothly */
+}
+.swiper-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }

@@ -1,25 +1,43 @@
-import React, { useEffect } from "react";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { provider } = useContext(AuthContext);
-  console.log(provider);
+  const { user } = useContext(AuthContext);
+  console.log("user", user);
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/setting");
+  };
   return (
-    <nav className="flex justify-between items-center px-5 sticy top-0">
+    <nav className="flex justify-between items-center px-5 sticy top-0 py-5">
       <h1 className="text-4xl">Chefaos</h1>
       <div className="space-x-8 font-semibold">
         <Link>Home</Link>
-        <Link>Our Chefs</Link>
+        <Link to="/ourchefs">Our Chefs</Link>
         <Link>Blog</Link>
         <Link>Chef Register</Link>
+        {/* https://www.youtube.com/watch?v=SLfhMt5OUPI */}
       </div>
       <div className="space-x-3 font-bold">
-        <Link className="bg-slate-300 px-10 py-2 rounded-full">Login</Link>
-        <Link className="bg-yellow-400 px-8 py-2 rounded-full">
-          Find A Chef
-        </Link>
+        <div className="flex items-center gap-5">
+          {user ? (
+            <div className="">
+              <button onClick={handleNavigate} className="text-[22px]">
+                Setting
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="bg-slate-300 px-10 py-2 rounded-full">
+              Login
+            </Link>
+          )}
+
+          <Link className="bg-yellow-400 px-8 py-2 rounded-full">
+            Find A Chef
+          </Link>
+        </div>
       </div>
     </nav>
   );

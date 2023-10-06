@@ -7,8 +7,9 @@ const Chefs = ({ chef }) => {
   const { chefPhotoUrl, chefName, yearsExperience, likes, numRecipes, id } =
     chef;
   const handleNavigate = () => {
-    navigate(`chefdetails/${id}`);
+    navigate(`/chefdetails/${id}`);
   };
+
   console.log(chefPhotoUrl);
   return (
     <div id="chefsCard" className="border-2 flex flex-col rounded-lg p-2">

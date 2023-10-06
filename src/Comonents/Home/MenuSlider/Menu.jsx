@@ -13,7 +13,9 @@ const Menu = () => {
   const [spaceBetween, setSpaceBetween] = useState(30);
 
   useEffect(() => {
-    fetch("http://localhost:3000/menu/v1/")
+    fetch(
+      "https://chef-hunter-chefaos-6nrafiqay-randomhabibur.vercel.app/menu/v1/"
+    )
       .then((res) => res.json())
       .then((data) => {
         setMenu(data);

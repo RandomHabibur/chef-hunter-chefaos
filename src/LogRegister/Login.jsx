@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { loginUserWithEmailAndPassword } = useContext(AuthContext);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const formFields = [
     {
@@ -24,9 +28,19 @@ const Login = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+    try {
+      const userCredential = await loginUserWithEmailAndPassword(
+        formData.email,
+        formData.password
+      );
+      const user = userCredential.user;
+      console.log("user loggin successfull", user);
+    } catch (err) {
+      console.error("error happend during loggin", err.message);
+    }
   };
 
   return (
@@ -58,6 +72,12 @@ const Login = () => {
               </div>
             </div>
           ))}
+          <p>
+            Don't have an account?{" "}
+            <Link className="underline text-blue-700" to="/register">
+              Regsiter
+            </Link>
+          </p>
           <div className="flex items-center justify-between">
             <button
               type="submit"

@@ -3,17 +3,14 @@ import ImageGallery from "./ImageGallery";
 import DisplayChefs from "./DisplayChefs";
 import Sponsor from "./sponsor/Sponsor";
 import Menu from "./MenuSlider/Menu";
+import useChefsData from "../ChefsAPI/ChefsAPI";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
-  const [chefs, setChefs] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/chef/v1")
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        setChefs(data);
-      });
-  }, []);
+  // const chefs = useChefsData();
+  const chefs = useLoaderData();
+  // console.log(chefs);
+  console.log("I have to check", chefs);
 
   // console.log("first", chefs);
   return (
