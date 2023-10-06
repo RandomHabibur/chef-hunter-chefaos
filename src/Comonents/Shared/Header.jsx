@@ -14,10 +14,10 @@ const Header = () => {
     <nav className="flex justify-between items-center px-5 sticy top-0 py-5">
       <h1 className="text-4xl">Chefaos</h1>
       <div className="space-x-8 font-semibold">
-        <Link>Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/ourchefs">Our Chefs</Link>
-        <Link>Blog</Link>
-        <Link>Chef Register</Link>
+        <Link to="blog">Blog</Link>
+        <Link to="chefregister">Chef Register</Link>
         {/* https://www.youtube.com/watch?v=SLfhMt5OUPI */}
       </div>
       <div className="space-x-3 font-bold">

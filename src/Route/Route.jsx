@@ -23,6 +23,14 @@ const router = createBrowserRouter([
           ),
       },
       {
+        path: "blog",
+        element: <div>Blog</div>,
+      },
+      {
+        path: "/chefregister",
+        element: <div>Chef Registration</div>,
+      },
+      {
         path: "menu",
         element: <Menu />,
       },
@@ -33,10 +41,6 @@ const router = createBrowserRouter([
             <OurChefs />
           </PrivateRoute>
         ),
-        loader: () =>
-          fetch(
-            "https://chef-hunter-chefaos-6nrafiqay-randomhabibur.vercel.app/allchef/v1"
-          ),
       },
       {
         path: "login",

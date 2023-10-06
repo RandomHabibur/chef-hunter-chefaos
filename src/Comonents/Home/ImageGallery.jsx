@@ -1,5 +1,5 @@
 // ImageGallery.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MyMansonry from "./MyMansory.jsx";
 
 const ImageGallery = () => {
@@ -25,7 +25,7 @@ const ImageGallery = () => {
           "polygon(0% 15%, 0 0, 15% 0%, 85% 0%, 100% 0, 100% 15%, 100% 85%, 100% 98%, 79% 94%, 49% 98%, 19% 94%, 0 98%)",
       }}
     >
-      <MyMansonry imageUrls={imageUrls} columnCount="4" gap="5"></MyMansonry>
+      <MyMansonry imageUrls={imageUrls}></MyMansonry>
     </div>
   );
 };

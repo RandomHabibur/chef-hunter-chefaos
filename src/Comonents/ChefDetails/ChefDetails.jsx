@@ -22,7 +22,6 @@ const ChefDetails = () => {
     recipes,
   } = specificChefDetails;
   console.log(recipes);
-  const shouldRenderTwice = chefDescription.length < 250;
 
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
@@ -76,10 +75,7 @@ const ChefDetails = () => {
               className="mySwiper"
             >
               {recipes.map((recipe) => (
-                <SwiperSlide
-                  className="flex items-center"
-                  key={recipe.recipes_id}
-                >
+                <SwiperSlide key={recipe.recipes_id}>
                   <img
                     className="rounded-lg"
                     src={recipe.recipeImages}

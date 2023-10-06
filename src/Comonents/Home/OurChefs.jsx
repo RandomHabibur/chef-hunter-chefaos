@@ -5,8 +5,8 @@ import useChefsData from "../ChefsAPI/ChefsAPI";
 import { useLoaderData } from "react-router-dom";
 
 const OurChefs = () => {
-  // const chefs = useChefsData();
-  const chefs = useLoaderData();
+  const chefs = useChefsData();
+  // const chefs = useLoaderData();
   return (
     <div>
       <DisplayChefs chefs={chefs} />
